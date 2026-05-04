@@ -1,18 +1,23 @@
-// Last updated: 04/05/2026, 20:06:36
+// Last updated: 04/05/2026, 20:26:42
 1class Solution {
 2public:
-3    bool checkPerfectNumber(int num) {
-4        int sum = 0;
-5        for(int i = 1; i<num; i++){
-6            if(num%i==0){
-7                sum += i;
-8            }
-9        }
+3   int reverseNum(int num){
+4    int reverse = 0;
+5    while(num>0){
+6        int digi = num %10;
+7        num = num/10;
+8        reverse = reverse*10 + digi;
+9    }
 10
-11        if(sum == num){
-12            return true;
-13        }
-14
-15        return false;
-16    }
-17};
+11    return reverse;
+12   }
+13    bool sumOfNumberAndReverse(int num) {
+14        for(int i = 0; i<=num; i++){
+15            if(i + reverseNum(i) == num ){
+16                return true;
+17            }
+18        }
+19
+20        return false;
+21    }
+22};
