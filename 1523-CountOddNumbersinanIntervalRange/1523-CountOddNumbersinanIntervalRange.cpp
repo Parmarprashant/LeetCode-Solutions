@@ -1,29 +1,23 @@
-// Last updated: 04/05/2026, 20:41:43
+// Last updated: 04/05/2026, 20:48:50
 1class Solution {
 2public:
-3    vector<int> selfDividingNumbers(int left, int right) {
-4        vector<int> result;
-5
-6        for (int i = left; i <= right; i++) {
-7            int temp = i;
-8            bool valid = true;
-9
-10            while (temp > 0) {
-11                int digit = temp % 10;
-12
-13                if (digit == 0 || i % digit != 0) {
-14                    valid = false;
-15                    break;
-16                }
-17
-18                temp /= 10;
-19            }
-20
-21            if (valid) {
-22                result.push_back(i);
-23            }
-24        }
-25
-26        return result;
-27    }
-28};
+3    vector<string> fizzBuzz(int n) {
+4        vector<string> answer;
+5        for(long long i = 1; i<=n; i++){
+6            if(i%3==0 && i%5==0){
+7               answer.push_back("FizzBuzz");
+8            }
+9            else if(i%3==0 && i%5!= 0){
+10                answer.push_back("Fizz");
+11            }
+12            else if(i%5 == 0 && i%3 != 0){
+13                answer.push_back("Buzz");
+14            }
+15            else{
+16                answer.push_back(to_string(i));
+17            }
+18        }
+19
+20        return answer;
+21    }
+22};
