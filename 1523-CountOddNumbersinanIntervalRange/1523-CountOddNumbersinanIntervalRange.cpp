@@ -1,0 +1,13 @@
+// Last updated: 04/05/2026, 20:02:50
+1class Solution {
+2public:
+3    int countOdds(int low, int high) {
+4        int count = 0;
+5        for(long long i = low; i<=high; i++){
+6            if(i%2!=0){
+7                count++;
+8            }
+9        }
+10        return count;
+11    }
+12};
