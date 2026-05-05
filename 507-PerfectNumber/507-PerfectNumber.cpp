@@ -1,16 +1,21 @@
-// Last updated: 05/05/2026, 18:27:23
+// Last updated: 05/05/2026, 18:33:06
 1class Solution {
 2public:
-3    int sumBase(int n, int k) {
-4     int result = 0;
-5     int div;
-6     while(n>0){
-7        int digi = n%k;
-8        div = n/k;
-9        result = result + digi;
-10        n = div;
-11     }
+3    int Square(int n){
+4        int square = 0;
+5        while(n > 0){
+6            int digi = n % 10;
+7            n = n / 10;
+8            square += digi * digi;
+9        }
+10        return square;
+11    }
 12
-13     return result;
-14    }
-15};
+13    bool isHappy(int n) {
+14     while(n != 1 && n != 4){
+15    n = Square(n);
+16}
+17return n == 1;
+18
+19    }
+20};
