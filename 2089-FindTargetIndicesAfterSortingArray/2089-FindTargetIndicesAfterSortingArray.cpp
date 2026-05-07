@@ -1,22 +1,24 @@
-// Last updated: 08/05/2026, 00:30:43
+// Last updated: 08/05/2026, 00:37:26
 1class Solution {
 2public:
-3    int specialArray(vector<int>& nums) {
-4      for(int x = 0; x <= nums.size(); x++){
-5
-6    int count = 0;
-7
-8    for(int num : nums){
-9        if(num >= x){
-10            count++;
-11        }
-12    }
-13
-14    if(count == x){
-15        return x;
-16    }
-17}
-18
-19        return -1;
-20    }
-21};
+3    int search(vector<int>& nums, int target) {
+4        int start = 0;
+5        int end = nums.size()-1;
+6        int mid = start + (end - start)/2;
+7        while(start<=end){
+8            if(nums[mid] == target){
+9                return mid;
+10            }
+11            else if(nums[mid]>target){
+12                end = mid-1;
+13            }
+14            else{
+15                start = mid + 1;
+16            }
+17
+18            mid = start + (end - start)/2;
+19        }
+20
+21        return -1;
+22    }
+23};
