@@ -1,18 +1,24 @@
-// Last updated: 07/05/2026, 23:57:03
+// Last updated: 08/05/2026, 00:07:36
 1class Solution {
 2public:
-3    vector<int> targetIndices(vector<int>& nums, int target) {
-4
-5        sort(nums.begin(), nums.end());
-6
-7        vector<int> ans;
-8
-9        for(int i = 0; i < nums.size(); i++){
-10            if(nums[i] == target){
-11                ans.push_back(i);
+3    int maximumCount(vector<int>& nums) {
+4        int count1 = 0;
+5        int count2 = 0;
+6        for(long long i = 0; i<nums.size(); i++){
+7            if(nums[i]>0){
+8                count1++;
+9            }
+10            else if(nums[i]<0){
+11                count2++;
 12            }
-13        }
-14
-15        return ans;
-16    }
-17};
+13
+14        }
+15
+16        if(count1>count2){
+17            return count1;
+18        }
+19        
+20
+21        return count2;
+22    }
+23};
