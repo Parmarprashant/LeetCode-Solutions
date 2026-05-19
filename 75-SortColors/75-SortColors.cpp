@@ -1,7 +1,7 @@
-// Last updated: 24/04/2026, 10:05:38
-class Solution {
-public:
-    void sortColors(vector<int>& nums) {
-     return sort(nums.begin(), nums.end());
-    }
-};
+// Last updated: 19/05/2026, 19:52:03
+1class Solution {
+2public:
+3    void sortColors(vector<int>& nums) {
+4        return sort(nums.begin(), nums.end());
+5    }
+6};
