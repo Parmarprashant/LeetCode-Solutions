@@ -1,20 +1,34 @@
-// Last updated: 20/05/2026, 20:04:09
+// Last updated: 20/05/2026, 20:16:19
 1class Solution {
 2public:
-3    bool detectCapitalUse(string word) {
-4        int capitalCount = 0;
+3    bool isValid(string word) {
+4        if(word.length() < 3) return false;
 5
-6        for(int i = 0; i < word.length(); i++) {
-7            if(word[i] >= 'A' && word[i] <= 'Z') {
-8                capitalCount++;
-9            }
-10        }
-11
-12        if(capitalCount == word.length()) return true; 
-13        if(capitalCount == 0) return true; 
-14        if(capitalCount == 1 && word[0] >= 'A' && word[0] <= 'Z')
-15            return true; 
-16
-17        return false;
-18    }
-19};
+6        bool hasVowel = false;
+7        bool hasConsonant = false;
+8
+9        for(int i = 0; i < word.length(); i++) {
+10
+11            
+12            if((word[i] >= '0' && word[i] <= '9') ||
+13               (word[i] >= 'a' && word[i] <= 'z') ||
+14               (word[i] >= 'A' && word[i] <= 'Z')) {
+15
+16                char ch = tolower(word[i]);
+17
+18                
+19                if(ch >= 'a' && ch <= 'z') {
+20                    if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+21                        hasVowel = true;
+22                    else
+23                        hasConsonant = true;
+24                }
+25            }
+26            else {
+27                return false;
+28            }
+29        }
+30
+31        return hasVowel && hasConsonant;
+32    }
+33};
