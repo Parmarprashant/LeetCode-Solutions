@@ -1,17 +1,13 @@
-// Last updated: 24/04/2026, 10:05:54
-class Solution {
-public:
-    int reverse(int x) {
-      int rev = 0;
-       while(x!=0){
-        int digi = x%10;
-        if(rev>INT_MAX/10 || rev < INT_MIN/10){
-            return 0;
-        }
-        rev = (rev*10) + digi;
-        x = x/10;
-       }
-
-        return rev;
-    }
-};
+// Last updated: 06/06/2026, 11:51:48
+1class Solution {
+2public:
+3    int reverse(int x) {
+4       long long rev = 0;
+5       while(x){
+6        rev = rev * 10+ x%10;
+7        x /= 10;
+8       } 
+9
+10       return (rev>INT_MAX || rev<INT_MIN)? 0 : rev;
+11    }
+12};
