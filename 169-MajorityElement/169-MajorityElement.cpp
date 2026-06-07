@@ -1,42 +1,21 @@
-// Last updated: 24/04/2026, 10:05:31
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-    //    unordered_map<int, int> freq;
-
-    //    for(int i = 0; i<nums.size(); i++){
-    //       freq[nums[i]]++;
-    //    }
-
-    //    int max = 0;
-    //    int ans = 0;
-
-    //    for(auto it: freq){
-    //     if(max<it.second){
-    //         max = it.second;
-    //         ans = it.first;
-    //     }
-    //    }
-
-
-        unordered_map<int, int> mp;
-
-        for(int value: nums){
-            mp[value]++;
-        }
-
-        int freq = nums.size() / 2;
-
-        for(auto it: mp){
-            if(it.second > freq){
-                return it.first;
-            }
-        }
-
-        return -1;
-    
-
-
-    
-    }
-};
+// Last updated: 07/06/2026, 18:05:42
+1class Solution {
+2public:
+3    int majorityElement(vector<int>& nums) {
+4        unordered_map<int , int> ans;
+5
+6        for(int value:nums){
+7            ans[value]++;
+8        }
+9
+10        int freq = nums.size()/2;
+11
+12        for(auto it: ans){
+13            if(it.second> freq){
+14                return it.first;
+15            }
+16        }
+17
+18        return -1;
+19    }
+20};
