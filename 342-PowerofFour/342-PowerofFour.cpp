@@ -1,14 +1,13 @@
-// Last updated: 03/05/2026, 23:57:25
+// Last updated: 14/06/2026, 11:46:47
 1class Solution {
 2public:
-3    bool isPerfectSquare(int num) {
-4        long long result;
-5       for(long long i = 1; i<= num; i++){
-6          result = (long long) i* i;
-7          if(result == num){
-8            return true;
-9          }
-10       } 
-11       return false;
-12    }
-13};
+3    bool isPowerOfFour(int n) {
+4        if(n<=0) return false;
+5
+6        while(n % 4 == 0){
+7            n/=4;
+8        }
+9
+10        return n==1;
+11    }
+12};
