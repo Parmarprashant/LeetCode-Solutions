@@ -1,4 +1,4 @@
-// Last updated: 16/06/2026, 13:29:52
+// Last updated: 16/06/2026, 13:38:31
 1class Solution {
 2public:
 3    int compareVersion(string version1, string version2) {
@@ -8,10 +8,10 @@
 7        while (i < version1.size() || j < version2.size()) {
 8
 9            int pos1 = version1.find('.', i);
-10            cout<<pos1<<endl;
+10            
 11
 12            int pos2 = version2.find('.', j);
-13            cout<<pos2<<endl;
+13           
 14
 15            if (pos1 == string::npos) pos1 = version1.size();
 16            if (pos2 == string::npos) pos2 = version2.size();
