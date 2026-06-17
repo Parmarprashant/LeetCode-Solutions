@@ -1,35 +1,28 @@
-// Last updated: 09/05/2026, 00:48:30
-1/**
+// Last updated: 17/06/2026, 21:02:09
+1/** 
 2 * Forward declaration of guess API.
-3 * int guess(int num);
-4 */
-5
-6class Solution {
-7public:
-8    int guessNumber(int n) {
+3 * @param  num   your guess
+4 * @return 	     -1 if num is higher than the picked number
+5 *			      1 if num is lower than the picked number
+6 *               otherwise return 0
+7 * int guess(int num);
+8 */
 9
-10        int start = 1;
-11        int end = n;
-12
-13        while(start <= end){
+10class Solution {
+11public:
+12    int guessNumber(int n) {
+13        int low = 1, high = n;
 14
-15            int mid = start + (end - start)/2;
-16
-17            int result = guess(mid);
-18
-19            if(result == 0){
-20                return mid;
-21            }
-22
-23            else if(result == -1){
-24                end = mid - 1;
-25            }
-26
-27            else{
-28                start = mid + 1;
-29            }
-30        }
-31
-32        return -1;
-33    }
-34};
+15        while(low<=high){
+16            int mid = low + (high - low)/2;
+17
+18            int res = guess(mid);
+19
+20            if(res == 0) return mid;
+21            else if(res == -1) high = mid -1;
+22            else low = mid +1;
+23        }
+24
+25        return -1;
+26    }
+27};
