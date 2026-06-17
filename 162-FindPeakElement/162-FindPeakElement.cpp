@@ -1,17 +1,20 @@
-// Last updated: 09/05/2026, 23:29:11
+// Last updated: 17/06/2026, 20:56:25
 1class Solution {
 2public:
 3    int findPeakElement(vector<int>& nums) {
-4        int maxi = nums[0];
-5        int index = 0;
+4        int n = nums.size();
+5        if(n==1) return 0;
 6
-7        for(int i = 1; i < nums.size(); i++) {
-8            if(nums[i] > maxi) {
-9                maxi = nums[i];
-10                index = i;
-11            }
-12        }
-13
-14        return index;
-15    }
-16};
+7
+8        for(int i= 0; i<n; i++){
+9            bool left = (i==0 || nums[i]>nums[i-1]);
+10            bool right = (i == n-1 || nums[i]> nums[i+1]);
+11
+12            if(left && right){
+13                return i;
+14            }
+15        }
+16
+17        return -1;
+18    }
+19};
