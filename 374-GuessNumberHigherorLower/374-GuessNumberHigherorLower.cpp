@@ -1,13 +1,17 @@
-// Last updated: 17/06/2026, 21:32:05
+// Last updated: 17/06/2026, 21:40:08
 1class Solution {
 2public:
-3    int maximumProduct(vector<int>& nums) {
-4    sort(nums.begin(), nums.end());
-5    int n = nums.size();
+3    string reverseOnlyLetters(string s) {
+4        int i = 0; 
+5        int j = s.size()-1;
 6
-7    return max(
-8        nums[n-1] * nums[n-2] * nums[n-3],
-9        nums[0] * nums[1]* nums[n-1]
-10    );
-11    }
-12};
+7        while(i<j){
+8            if(!isalpha(s[i])) i++;
+9            else if(!isalpha(s[j])) j--;
+10            else swap(s[i++], s[j--]);
+11        }
+12
+13
+14        return s;
+15    }
+16};
