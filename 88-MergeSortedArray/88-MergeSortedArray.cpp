@@ -1,29 +1,21 @@
-// Last updated: 23/06/2026, 13:27:30
-1/**
-2 * Definition for a binary tree node.
-3 * struct TreeNode {
-4 *     int val;
-5 *     TreeNode *left;
-6 *     TreeNode *right;
-7 *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-8 *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-9 *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-10 * };
-11 */
-12class Solution {
-13public:
-14     vector<int> ans;
-15
-16    void dfs(TreeNode* root) {
-17        if (!root) return;
-18
-19        dfs(root->left);
-20        ans.push_back(root->val);
-21        dfs(root->right);
-22    }
-23
-24    vector<int> inorderTraversal(TreeNode* root) {
-25        dfs(root);
-26        return ans;
-27    }
-28};
+// Last updated: 23/06/2026, 13:28:09
+1class Solution {
+2public:
+3    int height(TreeNode* root) {
+4        if (!root) return 0;
+5
+6        int left = height(root->left);
+7        if (left == -1) return -1;
+8
+9        int right = height(root->right);
+10        if (right == -1) return -1;
+11
+12        if (abs(left - right) > 1) return -1;
+13
+14        return max(left, right) + 1;
+15    }
+16
+17    bool isBalanced(TreeNode* root) {
+18        return height(root) != -1;
+19    }
+20};
