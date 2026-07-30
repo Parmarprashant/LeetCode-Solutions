@@ -1,22 +1,20 @@
-// Last updated: 30/07/2026, 11:01:28
+// Last updated: 30/07/2026, 11:12:12
 1class Solution {
 2public:
-3    bool divideArray(vector<int>& nums) {
-4        sort(nums.begin(), nums.end());
-5        int count = 0;
-6        for(int i = 0;  i<nums.size()-1; i +=2){
-7            if(nums[i] == nums[i+1]){
-8                count++;
-9            }
-10        }
-11
-12        int get = nums.size()/2;
-13        if(get == count){
-14            return true;
-15
-16        }
-17        
-18
-19        return false;
-20    }
-21};
+3    int findContentChildren(vector<int>& g, vector<int>& s) {
+4        sort(g.begin(), g.end());
+5        sort(s.begin(), s.end());
+6
+7        int child = 0;
+8        int cookie = 0;
+9
+10        while(child < g.size() && cookie < s.size()) {
+11            if(s[cookie] >= g[child]) {
+12                child++;   
+13            }
+14            cookie++;     
+15        }
+16
+17        return child;
+18    }
+19};
