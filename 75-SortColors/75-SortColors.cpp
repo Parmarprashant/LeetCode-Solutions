@@ -1,33 +1,34 @@
-// Last updated: 11/08/2026, 23:24:49
+// Last updated: 11/08/2026, 23:25:44
 1class Solution {
 2public:
 3    int majorityElement(vector<int>& nums) {
-4     int cnt = 0;
-5     int ele;
-6     int n = nums.size();
-7     for(int i = 0; i<n; i++){
-8        if(cnt == 0){
-9            cnt = 1;
-10            ele = nums[i];
-11        }
-12        else if(ele == nums[i]){
-13            cnt++;
-14        }
-15        else{
-16            cnt--;
-17        }
-18     }
-19       int cnt1 = 0;
-20     for(int i = 0; i<n; i++){
-21        if(nums[i] == ele){
-22            cnt1++;
-23        }
-24
-25        if(cnt1>n/2){
-26            return ele;
-27        }
-28     }
-29
-30     return -1;
-31    }
-32};
+4        //moore's voting algo
+5     int cnt = 0;
+6     int ele;
+7     int n = nums.size();
+8     for(int i = 0; i<n; i++){
+9        if(cnt == 0){
+10            cnt = 1;
+11            ele = nums[i];
+12        }
+13        else if(ele == nums[i]){
+14            cnt++;
+15        }
+16        else{
+17            cnt--;
+18        }
+19     }
+20       int cnt1 = 0;
+21     for(int i = 0; i<n; i++){
+22        if(nums[i] == ele){
+23            cnt1++;
+24        }
+25
+26        if(cnt1>n/2){
+27            return ele;
+28        }
+29     }
+30
+31     return -1;
+32    }
+33};
