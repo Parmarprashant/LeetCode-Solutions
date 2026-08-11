@@ -1,35 +1,21 @@
-// Last updated: 11/08/2026, 13:36:57
-1/**
-2 * Definition for singly-linked list.
-3 * struct ListNode {
-4 *     int val;
-5 *     ListNode *next;
-6 *     ListNode() : val(0), next(nullptr) {}
-7 *     ListNode(int x) : val(x), next(nullptr) {}
-8 *     ListNode(int x, ListNode *next) : val(x), next(next) {}
-9 * };
-10 */
-11class Solution {
-12public:
-13    ListNode* modifiedList(vector<int>& nums, ListNode* head) {
-14        unordered_set<int> st(nums.begin(), nums.end());
+// Last updated: 11/08/2026, 13:52:28
+1class Solution {
+2public:
+3    vector<int> twoSum(vector<int>& nums, int target) { 
+4        map<int, int> mpp;
+5        int n = nums.size();
+6
+7        for(int i = 0; i<n; i++){
+8            int a = nums[i];
+9            int more = target - a;
+10            if(mpp.find(more) != mpp.end()){
+11                return {mpp[more], i};
+12            }
+13
+14            mpp[a] = i;
 15
-16        
-17        while (head && st.count(head->val)) {
-18            head = head->next;
-19        }
-20
-21        ListNode* curr = head;
-22
-23       
-24        while (curr && curr->next) {
-25            if (st.count(curr->next->val)) {
-26                curr->next = curr->next->next;
-27            } else {
-28                curr = curr->next;
-29            }
-30        }
-31
-32        return head;
-33    }
-34};
+16        }
+17
+18        return {};
+19    }
+20};
